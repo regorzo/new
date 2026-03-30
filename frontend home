@@ -25,6 +25,18 @@
 
 
 
+   <!-- Main content -->
+    <main>
+        <h1>Welcome {{ session['fname'] }} {{ session['lname'] }}</h1>
+        <h2>Email: {{ session['email'] }}</h2>
+
+        <img
+            src="{{ url_for('static', filename='Images/userLogin.png') }}"
+            alt="User profile image"
+        >
+    </main>
+
+
     <!DOCTYPE html>
 <html lang="en">
 <head>
