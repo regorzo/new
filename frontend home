@@ -1,0 +1,61 @@
+        <!-- Account navigation -->
+        <div class="AccountNav">
+            {% if session.get('logged_in') %}
+                <a href="{{ url_for('logout') }}">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </a>
+            {% else %}
+                <a href="{{ url_for('login') }}">
+                    <i class="fa-solid fa-user"></i> Login
+                </a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <main>
+        <h1>Welcome {{ session['fname'] }} {{ session['lname'] }}</h1>
+        <h2>Email: {{ session['email'] }}</h2>
+
+        <img
+            src="{{ url_for('static', filename='Images/userLogin.png') }}"
+            alt="User profile image"
+        >
+    </main>
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Section</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="dashboard-cards">
+            <div class="card">
+                <h2>Next Appointment</h2>
+                <p>No upcoming appointments scheduled.</p>
+            </div>
+            <div class="card">
+                <h2>Energy Usage</h2>
+                <p>You used <strong>4 kWh</strong> of energy today</p>
+                <button class="view-btn">View energy usage graph</button>
+            </div>
+            <div class="card">
+                <h2>Latest Activity</h2>
+                <p>No recent activity.</p>
+            </div>
+            <div class = "card">
+                <h2>Book An Appointment</h2>
+                <p>Book a quick appointment with our team to maintain and manage your services and products.</p>
+                <form action="{{ url_for('booking') }}" method="get">
+                <button class="view-btn" type="submit">Book Now</button>
+            </form>
+
+            </div>
+        </div>
+    </div>
