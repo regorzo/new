@@ -1,0 +1,91 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+    const getError = (input) => {
+        if (!input) return null; // safeguard
+        let error = input.nextElementSibling;
+        if (!error || !error.classList.contains("error-msg")) {
+            error = document.createElement("p");
+            error.classList.add("error-msg");
+            error.style.color = "red";
+            error.style.fontSize = "0.9rem";
+            input.parentNode.insertBefore(error, input.nextSibling);
+        }
+        return error;
+    };
+
+    const highlightField = (input, isValid) => {
+        if (!input) return;
+        input.style.borderColor = isValid ? "" : "red";
+    };
+
+    // --- Login Form ---
+    const loginForm = document.querySelector("form.login-form");
+    if (loginForm) {
+        const emailInput = loginForm.querySelector('input[name="email"]');
+        const passwordInput = loginForm.querySelector('input[name="password"]');
+
+        loginForm.addEventListener("submit", (e) => {
+            let formValid = true;
+
+            // Email
+            const emailError = getError(emailInput);
+            const emailValid = emailInput.value.trim() !== "" && /^\S+@\S+\.\S+$/.test(emailInput.value.trim());
+            emailError.textContent = emailValid ? "" : emailInput.value.trim() === "" ? "Email is required." : "Enter a valid email.";
+            highlightField(emailInput, emailValid);
+            if (!emailValid) formValid = false;
+
+            // Password
+            const passwordError = getError(passwordInput);
+            const passwordValid = passwordInput.value.trim().length >= 4;
+            passwordError.textContent = passwordValid ? "" : "Password must be at least 4 characters.";
+            highlightField(passwordInput, passwordValid);
+            if (!passwordValid) formValid = false;
+
+            if (!formValid) e.preventDefault();
+        });
+    }
+
+    // --- Signup Form ---
+    const signupForm = document.querySelector("form.signup-form");
+    if (signupForm) {
+        const fnameInput = signupForm.querySelector('input[name="fname"]');
+        const lnameInput = signupForm.querySelector('input[name="lname"]');
+        const emailInput = signupForm.querySelector('input[name="email"]');
+        const passwordInput = signupForm.querySelector('input[name="password"]');
+
+        signupForm.addEventListener("submit", (e) => {
+            let formValid = true;
+
+            // First Name
+            const fnameError = getError(fnameInput);
+            const fnameValid = fnameInput.value.trim() !== "";
+            fnameError.textContent = fnameValid ? "" : "First name is required.";
+            highlightField(fnameInput, fnameValid);
+            if (!fnameValid) formValid = false;
+
+            // Last Name
+            const lnameError = getError(lnameInput);
+            const lnameValid = lnameInput.value.trim() !== "";
+            lnameError.textContent = lnameValid ? "" : "Last name is required.";
+            highlightField(lnameInput, lnameValid);
+            if (!lnameValid) formValid = false;
+
+            // Email
+            const emailError = getError(emailInput);
+            const emailValid = emailInput.value.trim() !== "" && /^\S+@\S+\.\S+$/.test(emailInput.value.trim());
+            emailError.textContent = emailValid ? "" : emailInput.value.trim() === "" ? "Email is required." : "Enter a valid email.";
+            highlightField(emailInput, emailValid);
+            if (!emailValid) formValid = false;
+
+            // Password
+            const passwordError = getError(passwordInput);
+            const passwordValid = passwordInput.value.trim().length >= 4;
+            passwordError.textContent = passwordValid ? "" : "Password must be at least 4 characters.";
+            highlightField(passwordInput, passwordValid);
+            if (!passwordValid) formValid = false;
+
+            if (!formValid) e.preventDefault();
+        });
+    }
+
+});
