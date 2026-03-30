@@ -1,26 +1,4 @@
-<nav class="navbar">
-    <img class="Logo" src="{{ url_for('static', filename='Images/Logo.png') }}">
 
-    <ul>
-        <li><a href="{{ url_for('index') }}">Home</a></li>
-        <li><a href="{{ url_for('about') }}">About</a></li>
-        <li><a href="{{ url_for('product_view') }}">Product View</a></li>
-        <li><a href="{{ url_for('carbon') }}">Calculator</a></li>
-    </ul>
-
-    <div class="AccountNav">
-        {% if session.get('logged_in') %}
-            <span>Hi {{ session.get('fname') }}</span>
-            <a href="{{ url_for('logout') }}">
-                <i class="fa-solid fa-right-from-bracket"></i> Logout
-            </a>
-        {% else %}
-            <a href="{{ url_for('login') }}">
-                <i class="fa-solid fa-user"></i> Login
-            </a>
-        {% endif %}
-    </div>
-</nav>
 
 
         <!-- Account navigation -->
