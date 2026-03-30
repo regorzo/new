@@ -21,3 +21,18 @@
         {% endif %}
     </div>
 </nav>
+
+
+        <!-- Account navigation -->
+        <div class="AccountNav">
+            {% if session.get('logged_in') %}
+                <a href="{{ url_for('logout') }}">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </a>
+            {% else %}
+                <a href="{{ url_for('login') }}">
+                    <i class="fa-solid fa-user"></i> Login
+                </a>
+            {% endif %}
+        </div>
+    </nav>
