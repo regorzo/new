@@ -1,0 +1,172 @@
+<h1 class="About-Header">
+Welcome to Rolsa Technologies, an expert green energy management group operating across the United Kingdom.
+</h1>
+
+
+
+<div class="feature-row animate-on-scroll">
+<div class="About-Flex-Section">
+    <div class="About-Flex-Text">
+        <h2>Our Team & Achievements</h2>
+        <p>
+            This is our dedicated and passionate team — a group of highly skilled professionals who work collaboratively to deliver exceptional results. 
+            Through innovation, commitment, and a shared vision, our team has successfully achieved numerous milestones that reflect both our technical expertise and our drive for excellence. 
+            Each member brings unique strengths and perspectives, allowing us to tackle complex challenges and continuously improve the quality of our solutions. 
+            Together, we strive to exceed expectations, build long-term partnerships, and make a meaningful impact within the green technology and energy management industry.
+        </p>
+    </div>
+
+    <div class="About-Flex-Image">
+        <img src="{{ url_for('static', filename='Images/Team.png') }}" alt="Our Team">
+    </div>
+</div>
+</div>
+
+
+
+<h2 class="Team-Section-Title">Meet Our Team</h2>
+
+<div class="Team-Grid">
+    <div class="Team-Card">
+        <h3>John Doe</h3>
+        <p class="role">Managing Director</p>
+
+        <p class="contact">
+            <i class="fa-solid fa-phone"></i> 0234982364
+        </p>
+        <p class="contact">
+            <i class="fa-solid fa-envelope"></i> Jane@RolsaTechnologies.co.uk
+        </p>
+    </div>
+
+    <div class="Team-Card">
+        <h3>Jane Doe</h3>
+        <p class="role">Director</p>
+
+        <p class="contact">
+            <i class="fa-solid fa-phone"></i> 1209312
+        </p>
+        <p class="contact">
+            <i class="fa-solid fa-envelope"></i> Jane@RolsaTechnologies.co.uk
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+/* Title overlay */
+.about-title {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.35); /* dark overlay for readability */
+}
+
+.about-title h1 {
+    color: white;
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0;
+}
+
+
+.About-Header {
+    max-width: 800px;      /* controls how compressed it is */
+    margin: 60px auto;    /* centers the block */
+    text-align: left;     /* left-align text inside */
+    line-height: 1;
+    font-size: 40px;
+}
+
+
+.About-Flex-Section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 10px auto 30px;
+    padding: 0 150px;   /* matches your H1 horizontal feel */
+    gap: 60px;
+}
+.About-Flex-Text h2 {
+    max-width: 300px;
+    margin: 0 0 20px 0;
+    text-align: left;
+    line-height: 1.1;
+    font-size: 32px;   /* slightly smaller than main H1 */
+}
+
+.About-Flex-Text p {
+    max-width: 800px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #070000;
+}
+
+.About-Flex-Image img {
+    max-width: 350px;
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+
+.Team-Grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 80px;                             /* space between people */
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 150px;
+}
+
+.Team-Card h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.Team-Card .role {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.Team-Card .contact {
+    font-size: 14px;
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #0056b3; /* blue like your icons */   
+}
+
+
+.Team-Section-Title {
+    max-width: 900px;
+    margin: 80px auto 30px;
+    padding: 0 150px;
+    font-size: 36px;
+    font-weight: 600;
+    text-align: left;
+    color: black;
+}
+
+
+.Team-Section-Title::after {
+    content: "";
+    display: block;
+    width: 240px;
+    height: 4px;
+    background: #000;
+    margin-top: 12px;
+}
